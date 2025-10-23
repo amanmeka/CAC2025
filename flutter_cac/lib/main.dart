@@ -14,15 +14,17 @@ void main() {
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations(
-    [DeviceOrientation.portraitUp]
-  );
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
+
+  // ✅ this check prevents the duplicate-app error even on restart/hot reload
+  if (Firebase.apps.isEmpty) {
+    await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
+  }
+
   runApp(const MyApp());
 }
+
 
 //stateless: cannot refresh
 //stateful: can refresh
