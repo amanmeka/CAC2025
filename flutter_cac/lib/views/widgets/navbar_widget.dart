@@ -17,7 +17,11 @@ class NavbarWidget extends StatelessWidget {
               ),
               NavigationDestination(
                 icon: Icon(Icons.task), 
-                label: 'Tasks Page'
+                label: 'Tasks'
+              ),
+              NavigationDestination(
+                icon: Icon(Icons.calendar_month), 
+                label: 'Calendar'
               ),
               NavigationDestination(
                 icon: Icon(Icons.person), 
@@ -27,7 +31,7 @@ class NavbarWidget extends StatelessWidget {
             onDestinationSelected: (int value) {
               selectedPageNotifier.value = value;
             },
-            selectedIndex: selectedPage ?? 0,
+            selectedIndex: selectedPage,
           );
         },
       );
