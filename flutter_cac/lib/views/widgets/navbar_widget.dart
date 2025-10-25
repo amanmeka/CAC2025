@@ -16,6 +16,10 @@ class NavbarWidget extends StatelessWidget {
                 label: 'Home'
               ),
               NavigationDestination(
+                icon: Icon(Icons.task), 
+                label: 'Tasks Page'
+              ),
+              NavigationDestination(
                 icon: Icon(Icons.person), 
                 label: 'Profile'
               ),

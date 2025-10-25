@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cac/data/constants.dart';
+import 'package:flutter_cac/data/notifiers.dart';
 import 'package:flutter_cac/views/pages/new_task_page.dart';
 import 'package:flutter_cac/views/widgets/hero_widget.dart';
 
@@ -36,18 +37,32 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
-            FilledButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return NewTask();
-                    },
+            Padding(
+              padding: EdgeInsetsGeometry.all(20.0),
+              child: Card(
+                child: Container(
+                  width: double.infinity,
+                  padding: EdgeInsetsGeometry.all(10.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      TextButton(
+                        onPressed: () {
+                          selectedPageNotifier.value = 1;
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.add),
+                            SizedBox(width: 5,),
+                            Text('Add a new task'),
+                          ],
+                        )
+                      )
+                    ],
                   )
-                );
-              },
-              child: Text("click here"),
+                )
+              ),
             )
           ],
         ), 

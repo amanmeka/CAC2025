@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cac/data/notifiers.dart';
 import 'package:flutter_cac/views/pages/home_page.dart';
+import 'package:flutter_cac/views/pages/new_task_page.dart';
 import 'package:flutter_cac/views/pages/profile_page.dart';
 import 'package:flutter_cac/views/pages/settings_page.dart';
 import 'package:flutter_cac/views/widgets/navbar_widget.dart';
 
 List<Widget> pages = [
   HomePage(),
+  NewTask(),
   ProfilePage(),
 ];
 

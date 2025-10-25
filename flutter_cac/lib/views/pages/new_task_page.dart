@@ -27,18 +27,7 @@ class TaskPage extends StatefulWidget {
 }
 
 class _TaskPageState extends State<TaskPage> {
-  final List<Task> tasksList = [
-    Task(title: 'Get started', isDone: true),
-    Task(title: 'Typography'),
-    Task(title: 'Layout'),
-    Task(title: 'Box modal'),
-    Task(title: 'Grids and containers', isDone: true),
-    Task(title: 'Implicit grid', isDone: true),
-    Task(title: 'Negative spaces'),
-    Task(title: 'Alignment', isDone: true),
-    Task(title: 'Color'),
-    Task(title: 'Style'),
-  ];
+  final List<Task> tasksList = [];
 
   void toggleTask(int index) {
     setState(() {
@@ -153,12 +142,6 @@ class _TaskPageState extends State<TaskPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'tasked',
-          style: textStyles.titleTealText
-        ),
-      ),
       floatingActionButton: FloatingActionButton(
         onPressed: _showAddTaskDialog,
         child: const Icon(Icons.add),
@@ -177,7 +160,7 @@ class _TaskPageState extends State<TaskPage> {
               style: TextStyle(
                 decoration:
                     task.isDone ? TextDecoration.lineThrough : TextDecoration.none,
-                color: task.isDone ? Colors.red : null,
+                color: task.isDone ? textStyles.color : null,
               ),
             ),
             onTap: () => toggleTask(index),

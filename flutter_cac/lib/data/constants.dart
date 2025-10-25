@@ -10,4 +10,6 @@ class textStyles {
   static const TextStyle descriptionText = TextStyle(
     fontSize: 16.0,
   );
+
+  static const Color color = Colors.red;
 }

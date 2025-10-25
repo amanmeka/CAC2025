@@ -1,5 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_cac/data/constants.dart';
 import 'package:flutter_cac/data/database_service.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -154,7 +155,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
                 ElevatedButton(
                   onPressed: () {},
-                  child: Text("Click Me"),
+                  child: Text("change from red to blue."),
                 ),
                 FilledButton(
                   onPressed: () {},
