@@ -8,7 +8,7 @@ import 'package:flutter_cac/views/widgets/navbar_widget.dart';
 
 List<Widget> pages = [
   HomePage(),
-  NewTask(),
+  TaskPage(),
   ProfilePage(),
 ];
 

@@ -47,18 +47,25 @@ class HomePage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       TextButton(
-                        onPressed: () {
+                        onPressed: () async {
+                          // Switch to Task page
                           selectedPageNotifier.value = 1;
+
+                          // Wait one frame so TaskPage can mount
+                          await Future.delayed(const Duration(milliseconds: 100));
+
+                          // Trigger the dialog once TaskPage is ready
+                          showAddTaskDialogNotifier.value = true;
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
+                          children: const [
                             Icon(Icons.add),
-                            SizedBox(width: 5,),
+                            SizedBox(width: 5),
                             Text('Add a new task'),
                           ],
-                        )
-                      )
+                        ),
+                      ),
                     ],
                   )
                 )
