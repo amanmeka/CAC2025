@@ -55,25 +55,28 @@ class _TaskPageState extends State<TaskPage> {
 
   void _showAddTaskDialog() {
     if (!mounted) return;
-    final controller = TextEditingController();
 
     showDialog<void>(
       context: context,
+      barrierDismissible: true, // ESC or tapping outside allowed
       builder: (context) {
+        final controller = TextEditingController();
+
         return AlertDialog(
           title: const Text('Add New Task'),
           content: TextField(
             controller: controller,
             autofocus: true,
+            textInputAction: TextInputAction.done,
             decoration: const InputDecoration(hintText: 'Enter task title'),
             onSubmitted: (value) {
               final text = value.trim();
-              if (text.isNotEmpty) {
-                _addTask(text);
-                _addToDatabase(text, 'task${tasksList.length}');
-                // close the dialog AFTER this frame
+              if (text.isNotEmpty && mounted) {
                 WidgetsBinding.instance.addPostFrameCallback((_) {
-                if (mounted) Navigator.of(context).pop();
+                  if (!mounted) return;
+                  _addTask(text);
+                  _addToDatabase(text, 'task${tasksList.length}');
+                  Navigator.of(context).pop();
                 });
               }
             },
@@ -88,19 +91,25 @@ class _TaskPageState extends State<TaskPage> {
             ElevatedButton(
               onPressed: () {
                 final text = controller.text.trim();
-                if (text.isNotEmpty) _addTask(text);
-                Navigator.of(context).pop();
+                if (text.isNotEmpty && mounted) {
+                  WidgetsBinding.instance.addPostFrameCallback((_) {
+                    if (!mounted) return;
+                    _addTask(text);
+                    _addToDatabase(text, 'task${tasksList.length}');
+                    Navigator.of(context).pop();
+                  });
+                } else {
+                  Navigator.of(context).pop();
+                }
               },
               child: const Text('Add'),
             ),
           ],
         );
       },
-    ).then((_) {
-      // Dispose controller AFTER dialog is gone
-      controller.dispose();
-    });
+    );
   }
+
 
   void _toggleTask(int index) {
     setState(() {

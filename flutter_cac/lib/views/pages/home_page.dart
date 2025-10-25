@@ -15,28 +15,6 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             HeroWidget(),
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 10.0,),
-              width: double.infinity,
-              child: Card(
-                child: Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Hello Welcome to this card',
-                        style: textStyles.titleTealText,
-                      ),
-                      Text(
-                        'Just a card',
-                        style: textStyles.descriptionText,
-                      ),
-                    ],
-                  )
-                ),
-              ),
-            ),
             Padding(
               padding: EdgeInsetsGeometry.all(20.0),
               child: Card(
