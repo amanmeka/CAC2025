@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class textStyles {
   static const TextStyle titleTealText = TextStyle(
     color: Colors.teal,
-    fontSize: 18.0,
+    fontSize: 25.0,
     fontWeight: FontWeight.bold,
   );
 

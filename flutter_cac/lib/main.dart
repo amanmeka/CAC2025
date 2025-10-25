@@ -15,7 +15,7 @@ void main() {
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // ✅ this check prevents the duplicate-app error even on restart/hot reload
+  //! checks for duplicate-app error even on restart/hot reload
   if (Firebase.apps.isEmpty) {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,

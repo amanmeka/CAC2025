@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cac/data/constants.dart';
 import 'package:flutter_cac/data/notifiers.dart';
 import 'package:flutter_cac/views/pages/calendar_page.dart';
 import 'package:flutter_cac/views/pages/home_page.dart';
@@ -21,7 +22,10 @@ class WidgetTree extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Flutter"),
+          title: Text(
+            "ThingsTodo",
+            style: textStyles.titleTealText,
+          ),
           actions: [
             IconButton(
               onPressed: () {
